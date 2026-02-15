@@ -3,22 +3,23 @@
  * Author: Antigravity
  */
 
- :root {
+:root {
     /* Color Palette */
     --bg-color: #0f172a;
     --bg-alt: #1e293b;
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
-    --accent: #22d3ee; /* Cyan/Teal */
+    --accent: #22d3ee;
+    /* Cyan/Teal */
     --accent-hover: #06b6d4;
     --card-bg: #1e293b;
     --border-color: #334155;
-    
+
     /* Spacing & Layout */
     --container-width: 1100px;
     --header-height: 70px;
     --radius: 8px;
-    
+
     /* Transitions */
     --transition: all 0.3s ease;
 }
@@ -67,7 +68,8 @@ ul {
     background-color: var(--bg-alt);
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     display: inline-block;
     padding: 12px 28px;
     border-radius: var(--radius);
@@ -161,12 +163,18 @@ header .container {
     color: var(--text-secondary);
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--accent);
 }
 
+.nav-links .btn-primary {
+    color: var(--bg-color);
+}
+
 .mobile-toggle {
-    display: none; /* Hidden on desktop */
+    display: none;
+    /* Hidden on desktop */
     background: none;
     border: none;
     color: var(--text-primary);
@@ -255,7 +263,8 @@ header .container {
 .shape-2 {
     width: 300px;
     height: 300px;
-    background: #6366f1; /* Indigo */
+    background: #6366f1;
+    /* Indigo */
     bottom: 50px;
     left: -100px;
 }
@@ -361,7 +370,8 @@ header .container {
     background: var(--border-color);
     top: 0;
     bottom: 0;
-    left: 20px; /* Aligned left for simplicity */
+    left: 20px;
+    /* Aligned left for simplicity */
 }
 
 .timeline-item {
@@ -427,7 +437,7 @@ header .container {
 .project-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .project-content {
@@ -443,7 +453,8 @@ header .container {
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 20px;
-    min-height: 60px; /* Alignment fix */
+    min-height: 60px;
+    /* Alignment fix */
 }
 
 .project-tags {
@@ -547,7 +558,7 @@ footer p {
         flex-direction: column;
         justify-content: center;
         transition: 0.3s ease-in-out;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     }
 
     .nav-links.active {
@@ -558,7 +569,7 @@ footer p {
     #hero h1 {
         font-size: 2.5rem;
     }
-    
+
     #hero .role {
         font-size: 1.5rem;
     }
