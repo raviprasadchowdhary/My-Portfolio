@@ -5,6 +5,7 @@ const portfolioData = {
             "dotColor": "accent"
         },
         "faviconText": "RC",
+        "pageTitle": "Raviprasad | QA Engineer",
         "nav": [
             { "text": "About", "link": "#about" },
             { "text": "Skills", "link": "#skills" },

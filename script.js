@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = portfolioData;
 
         // --- Site Config ---
+        // Page Title
+        document.title = data.site.pageTitle || 'Portfolio';
+
         // Logo
         const logo = document.getElementById('site-logo');
         logo.innerHTML = `${data.site.logo.text}<span class="dot">.</span>`;
