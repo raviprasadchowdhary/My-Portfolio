@@ -71,7 +71,7 @@ const portfolioData = {
                 "Conducted API testing using Postman (Data consistency & accuracy).",
                 "Reported and tracked defects in JIRA, ensuring quick resolution.",
                 "Mentored 5+ junior testers, improving team productivity.",
-                "<strong>Achievement:</strong> Delivered 4 major projects with zero critical post-prod defects."
+                "<strong>Achievement:</strong> Delivered 4+ major projects with zero critical post-prod defects."
             ]
         }
     ],
