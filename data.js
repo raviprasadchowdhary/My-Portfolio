@@ -4,6 +4,7 @@ const portfolioData = {
             "text": "RC",
             "dotColor": "accent"
         },
+        "faviconText": "RC",
         "nav": [
             { "text": "About", "link": "#about" },
             { "text": "Skills", "link": "#skills" },

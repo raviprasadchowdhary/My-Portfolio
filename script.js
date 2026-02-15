@@ -12,6 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Logo
         const logo = document.getElementById('site-logo');
         logo.innerHTML = `${data.site.logo.text}<span class="dot">.</span>`;
+
+        // Dynamic Favicon
+        const favicon = document.getElementById('favicon');
+        if (data.site.faviconText) {
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                    <rect width="64" height="64" rx="10" fill="#0f172a"/>
+                    <text x="50%" y="55%" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#22d3ee" text-anchor="middle" dominant-baseline="middle">
+                        ${data.site.faviconText}
+                    </text>
+                </svg>
+            `.trim();
+            favicon.href = `data:image/svg+xml;base64,${btoa(svg)}`;
+        }
+
         // Nav
         const navList = document.getElementById('nav-links');
         navList.innerHTML = data.site.nav.map(item => `
