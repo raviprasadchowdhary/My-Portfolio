@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
@@ -94,4 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(styleSheet);
+
+    // Dynamic Year in Footer - Immediate Execution Check
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
+
+// Fallback: Run immediately in case DOMContentLoaded already fired
+(function () {
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan && !yearSpan.textContent) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+})();

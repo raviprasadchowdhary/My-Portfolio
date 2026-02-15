@@ -578,3 +578,160 @@ footer p {
         flex-direction: column;
     }
 }
+
+/* Enhanced Responsive Styles (Overrides) */
+
+/* Ultra Wide Screens (2560px+) */
+@media (min-width: 1440px) {
+    :root {
+        --container-width: 1300px;
+    }
+
+    #hero h1 {
+        font-size: 5rem;
+    }
+
+    .project-desc,
+    .about-text p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablet (Landscape) - 1024px */
+@media (max-width: 1024px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    #hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        gap: 20px;
+    }
+}
+
+/* Tablet (Portrait) & Large Mobile - 768px */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Mobile Nav */
+    .mobile-toggle {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 75%;
+        /* Slightly wider than old 70% */
+        max-width: 300px;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* Hero */
+    #hero h1 {
+        font-size: 2.8rem;
+    }
+
+    #hero .role {
+        font-size: 1.4rem;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+    }
+
+    /* Ensure Grids Wrap Nicely */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    :root {
+        --header-height: 60px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    #hero h1 {
+        font-size: 2.2rem;
+    }
+
+    #hero .tagline {
+        font-size: 1rem;
+    }
+
+    #hero .role {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 20px;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+
+    .timeline-item {
+        padding-left: 30px;
+    }
+
+    .timeline::after {
+        left: 10px;
+    }
+
+    .timeline-dot {
+        left: 3px;
+    }
+
+    /* Force single column for very small screens */
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}
