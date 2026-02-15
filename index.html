@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Raviprasad - Quality Assurance Engineer & Software Test Engineer.">
+    <meta id="meta-description" name="description" content="">
     <title>Raviprasad | QA Engineer</title>
     <!-- Dynamic Favicon -->
     <link id="favicon" rel="icon" type="image/svg+xml"
@@ -36,13 +36,13 @@
         <!-- Hero Section -->
         <section id="hero">
             <div class="container hero-content">
-                <span class="greeting">Hello, I'm</span>
+                <span class="greeting" id="hero-greeting"></span>
                 <h1 id="hero-name"></h1>
                 <h2 id="hero-role" class="role"></h2>
                 <p id="hero-tagline" class="tagline"></p>
                 <div class="hero-actions">
-                    <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="#contact" class="btn-secondary">Contact Me</a>
+                    <a href="#projects" class="btn-primary" id="btn-view-projects"></a>
+                    <a href="#contact" class="btn-secondary" id="btn-contact-me"></a>
                 </div>
                 <div class="social-links" id="hero-social">
                     <!-- Dynamic Social Links -->
@@ -101,14 +101,14 @@
         <section id="contact" class="section">
             <div class="container contact-container">
                 <h2 class="section-title" id="header-contact"></h2>
-                <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+                <p id="contact-tagline"></p>
                 <div class="contact-methods" id="contact-methods">
                     <!-- Dynamic Contact Methods -->
                 </div>
                 <br>
                 <p class="resume-download">
                     <a id="resume-link" href="#" target="_blank" class="btn-primary"><i
-                            class="fas fa-external-link-alt"></i> View Resume</a>
+                            class="fas fa-external-link-alt"></i> <span id="resume-btn-text"></span></a>
                 </p>
             </div>
         </section>

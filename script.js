@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
         navList.innerHTML = data.site.nav.map(item => `
             <li><a href="${item.link}" class="${item.isButton ? 'btn-primary' : ''}">${item.text}</a></li>
         `).join('');
+
+        // Meta Description
+        const metaDesc = document.getElementById('meta-description');
+        if (metaDesc) metaDesc.setAttribute('content', data.site.metaDescription || '');
+
         // Section Headers
         setLink('header-about', data.site.headers.about);
         setLink('header-skills', data.site.headers.skills);
@@ -42,20 +47,26 @@ document.addEventListener('DOMContentLoaded', () => {
         setLink('header-projects', data.site.headers.projects);
         setLink('header-contact', data.site.headers.contact);
 
+        // UI Text Elements
+        setLink('hero-greeting', data.site.uiText.heroGreeting);
+        setLink('btn-view-projects', data.site.uiText.heroButtons.viewProjects);
+        setLink('btn-contact-me', data.site.uiText.heroButtons.contactMe);
+        setLink('contact-tagline', data.site.uiText.contactTagline);
+        setLink('resume-btn-text', data.site.uiText.resumeButtonText);
+
         // --- Personal Content ---
         // Hero Section
-        setLink('hero-name', data.personal.name); // Using safe setter function
-        // Special case for hero name which is an H1, not a link usually, but let's keep it simple
-        document.getElementById('hero-name').textContent = data.personal.name;
-        document.getElementById('hero-role').textContent = data.personal.role;
-        document.getElementById('hero-tagline').textContent = data.personal.tagline;
+        setLink('hero-name', data.hero.name);
+        document.getElementById('hero-name').textContent = data.hero.name;
+        document.getElementById('hero-role').textContent = data.hero.role;
+        document.getElementById('hero-tagline').textContent = data.hero.tagline;
 
         // Hero Socials
         const heroSocial = document.getElementById('hero-social');
         heroSocial.innerHTML = `
-            <a href="${data.personal.linkedin}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="${data.personal.github}" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="mailto:${data.personal.email}" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="${data.contact.linkedin}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="${data.contact.github}" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:${data.contact.email}" aria-label="Email"><i class="fas fa-envelope"></i></a>
         `;
 
         // About Section
@@ -115,30 +126,30 @@ document.addEventListener('DOMContentLoaded', () => {
         // Contact Section
         const contactMethods = document.getElementById('contact-methods');
         contactMethods.innerHTML = `
-            <a href="mailto:${data.personal.email}" class="contact-card">
+            <a href="mailto:${data.contact.email}" class="contact-card">
                 <i class="fas fa-envelope"></i>
-                <span>${data.personal.email}</span>
+                <span>${data.contact.email}</span>
             </a>
-            <a href="${data.personal.linkedin}" target="_blank" class="contact-card">
+            <a href="${data.contact.linkedin}" target="_blank" class="contact-card">
                 <i class="fab fa-linkedin"></i>
                 <span>LinkedIn Profile</span>
             </a>
-            <a href="tel:${data.personal.phone.replace(/\s+/g, '')}" class="contact-card">
+            <a href="tel:${data.contact.phone.replace(/\s+/g, '')}" class="contact-card">
                 <i class="fas fa-phone"></i>
-                <span>${data.personal.phone}</span>
+                <span>${data.contact.phone}</span>
             </a>
         `;
 
         // Resume Link
         const resumeLink = document.getElementById('resume-link');
-        resumeLink.href = data.personal.resume;
+        resumeLink.href = data.contact.resume;
 
         // Footer
-        document.getElementById('footer-name').textContent = data.personal.name;
+        document.getElementById('footer-name').textContent = data.hero.name;
         const footerSocial = document.getElementById('footer-social');
         footerSocial.innerHTML = `
-            <a href="${data.personal.linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="${data.personal.github}" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="${data.contact.linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="${data.contact.github}" target="_blank"><i class="fab fa-github"></i></a>
         `;
     }
 

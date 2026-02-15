@@ -1,11 +1,13 @@
 const portfolioData = {
+    // ========== SITE CONFIGURATION ==========
     "site": {
+        "pageTitle": "Raviprasad | QA Engineer",
+        "metaDescription": "Portfolio of Raviprasad - Quality Assurance Engineer & Software Test Engineer.",
+        "faviconText": "RC",
         "logo": {
             "text": "RC",
             "dotColor": "accent"
         },
-        "faviconText": "RC",
-        "pageTitle": "Raviprasad | QA Engineer",
         "nav": [
             { "text": "About", "link": "#about" },
             { "text": "Skills", "link": "#skills" },
@@ -19,18 +21,26 @@ const portfolioData = {
             "experience": "Experience",
             "projects": "Featured Projects",
             "contact": "Get In Touch"
+        },
+        "uiText": {
+            "heroGreeting": "Hello, I'm",
+            "heroButtons": {
+                "viewProjects": "View Projects",
+                "contactMe": "Contact Me"
+            },
+            "contactTagline": "Feel free to reach out for collaborations or just a friendly hello!",
+            "resumeButtonText": "View Resume"
         }
     },
-    "personal": {
+
+    // ========== HERO SECTION ==========
+    "hero": {
         "name": "Raviprasad",
         "role": "Quality Assurance Engineer",
-        "tagline": "Ensuring high-quality, defect-free software releases with 4+ years of expertise in Manual, API & Automation Testing.",
-        "email": "Raviprasad.QE@gmail.com",
-        "phone": "+91 99727 64442",
-        "linkedin": "https://www.linkedin.com/in/raviprasad07",
-        "github": "https://github.com/raviprasadchowdhary",
-        "resume": "https://docs.google.com/document/d/1mLQI7Il4niwXlHIlWKsII5V25bYkxTuxziNc3h75HoM/edit?usp=sharing"
+        "tagline": "Ensuring high-quality, defect-free software releases with 4+ years of expertise in Manual, API & Automation Testing."
     },
+
+    // ========== ABOUT SECTION ==========
     "about": {
         "text": [
             "I am a <strong>Quality Assurance Engineer</strong> with over 4 years of experience specializing in Manual & Automation Testing of web and API-based applications being based in Bengaluru, India.",
@@ -43,6 +53,8 @@ const portfolioData = {
             { "label": "Test Coverage", "value": "100%" }
         ]
     },
+
+    // ========== SKILLS SECTION ==========
     "skills": [
         {
             "category": "Testing & QA",
@@ -60,6 +72,8 @@ const portfolioData = {
             "items": ["Playwright", "TypeScript", "JavaScript", "Python & Pytest", "SQL / MongoDB / Oracle"]
         }
     ],
+
+    // ========== EXPERIENCE SECTION ==========
     "experience": [
         {
             "role": "Associate / Sr. Quality Engineer",
@@ -75,6 +89,8 @@ const portfolioData = {
             ]
         }
     ],
+
+    // ========== PROJECTS SECTION ==========
     "projects": [
         {
             "title": "LMS Migration",
@@ -96,5 +112,14 @@ const portfolioData = {
             "desc": "Executed functional testing for broker workflows, user activation, and data synchronization between portals.",
             "tags": ["Functional Testing", "Data Sync"]
         }
-    ]
+    ],
+
+    // ========== CONTACT SECTION ==========
+    "contact": {
+        "email": "Raviprasad.QE@gmail.com",
+        "phone": "+91 99727 64442",
+        "linkedin": "https://www.linkedin.com/in/raviprasad07",
+        "github": "https://github.com/raviprasadchowdhary",
+        "resume": "https://docs.google.com/document/d/1mLQI7Il4niwXlHIlWKsII5V25bYkxTuxziNc3h75HoM/edit?usp=sharing"
+    }
 };
