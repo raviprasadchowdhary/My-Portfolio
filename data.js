@@ -49,7 +49,7 @@ const portfolioData = {
         ],
         "stats": [
             { "label": "Years Exp.", "value": "4+" },
-            { "label": "Issues Resolved", "value": "200+" },
+            { "label": "Issues Resolved", "value": "450+" },
             { "label": "Test Coverage", "value": "100%" }
         ]
     },
