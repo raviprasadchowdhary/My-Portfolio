@@ -472,6 +472,100 @@ header .container {
     border-radius: 20px;
 }
 
+/* Personal Project Badge */
+.project-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.project-card--personal {
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.project-card--personal:hover {
+    border-color: #818cf8;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+
+/* Project Highlights List */
+.project-highlights {
+    list-style: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+    border-left: 2px solid var(--border-color);
+    padding-left: 15px;
+}
+
+.project-highlights li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.project-highlights li:last-child {
+    margin-bottom: 0;
+}
+
+.project-highlights strong {
+    color: var(--text-primary);
+}
+
+.project-highlights code {
+    font-size: 0.85em;
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--accent);
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+/* Project Links */
+.project-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: var(--bg-color);
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.project-link--repo {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.project-link--repo:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(34, 211, 238, 0.05);
+}
+
 /* Contact Section */
 .contact-container {
     text-align: center;

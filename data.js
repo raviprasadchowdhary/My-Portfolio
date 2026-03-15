@@ -111,6 +111,20 @@ const portfolioData = {
             "title": "Internal Broker Portal",
             "desc": "Executed functional testing for broker workflows, user activation, and data synchronization between portals.",
             "tags": ["Functional Testing", "Data Sync"]
+        },
+        {
+            "title": "Ravionus — Developer Tools Platform",
+            "personal": true,
+            "desc": "Built a production developer tools web platform from scratch — 21 tools, 11 interactive playgrounds, and a full QA automation strategy with 1,374 Playwright tests across a 41-job CI/CD pipeline.",
+            "highlights": [
+                "Authored <strong>1,374 end-to-end Playwright tests</strong> across 34 spec files — 3-tier classification: Smoke (~130), Functional (~1,240), Regression (~1,374)",
+                "Designed a <strong>41-job GitHub Actions pipeline</strong> with path-filtered CI; ~50% runtime reduction via npm + Playwright browser caching",
+                "Implemented <strong>scheduled test strategy</strong>: daily smoke runs (Mon–Sat, 02:00 UTC) and weekly full regression (Sunday) with manual <code>workflow_dispatch</code> override",
+                "Shipped a <strong>zero-dependency static platform</strong> with 21 developer tools (JSON, YAML, JWT decoder, regex, QR, diff, hash, etc.) and 11 interactive playgrounds — hosted on GitHub Pages"
+            ],
+            "tags": ["Playwright", "GitHub Actions", "CI/CD", "Vanilla JS", "GitHub Pages"],
+            "liveUrl": "https://ravionus.com",
+            "repoUrl": "https://github.com/Ravionus/ravionus.com"
         }
     ],
 

@@ -112,13 +112,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Projects Section
         const projectsGrid = document.getElementById('projects-grid');
         projectsGrid.innerHTML = data.projects.map(project => `
-            <article class="project-card">
+            <article class="project-card${project.personal ? ' project-card--personal' : ''}">
                 <div class="project-content">
+                    ${project.personal ? '<span class="project-badge">Personal Project</span>' : ''}
                     <h3>${project.title}</h3>
                     <p class="project-desc">${project.desc}</p>
+                    ${project.highlights ? `
+                    <ul class="project-highlights">
+                        ${project.highlights.map(h => `<li>${h}</li>`).join('')}
+                    </ul>` : ''}
                     <div class="project-tags">
                         ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
                     </div>
+                    ${(project.liveUrl || project.repoUrl) ? `
+                    <div class="project-links">
+                        ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Live Site</a>` : ''}
+                        ${project.repoUrl ? `<a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="project-link project-link--repo"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                    </div>` : ''}
                 </div>
             </article>
         `).join('');
