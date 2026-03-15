@@ -22,8 +22,15 @@ const portfolioData = {
             "projects": "Featured Projects",
             "contact": "Get In Touch"
         },
+        "labels": {
+            "about": "Background",
+            "skills": "Expertise",
+            "experience": "Career",
+            "projects": "Work",
+            "contact": "Contact"
+        },
         "uiText": {
-            "heroGreeting": "Hello, I'm",
+            "heroGreeting": "QA Engineer & Test Automation",
             "heroButtons": {
                 "viewProjects": "View Projects",
                 "contactMe": "Contact Me"

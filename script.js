@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Page Title
         document.title = data.site.pageTitle || 'Portfolio';
 
-        // Logo
+        // Logo — gradient text via CSS, no dot needed
         const logo = document.getElementById('site-logo');
-        logo.innerHTML = `${data.site.logo.text}<span class="dot">.</span>`;
+        logo.textContent = data.site.logo.text;
 
         // Dynamic Favicon
         const favicon = document.getElementById('favicon');
         if (data.site.faviconText) {
             const svg = `
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                    <rect width="64" height="64" rx="10" fill="#0f172a"/>
-                    <text x="50%" y="55%" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#22d3ee" text-anchor="middle" dominant-baseline="middle">
+                    <rect width="64" height="64" rx="10" fill="#0a0a0f"/>
+                    <text x="50%" y="55%" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#a855f7" text-anchor="middle" dominant-baseline="middle">
                         ${data.site.faviconText}
                     </text>
                 </svg>
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Nav
         const navList = document.getElementById('nav-links');
         navList.innerHTML = data.site.nav.map(item => `
-            <li><a href="${item.link}" class="${item.isButton ? 'btn-primary' : ''}">${item.text}</a></li>
+            <li><a href="${item.link}" class="${item.isButton ? 'nav-cta' : ''}">${item.text}</a></li>
         `).join('');
 
         // Meta Description
@@ -47,17 +47,25 @@ document.addEventListener('DOMContentLoaded', () => {
         setLink('header-projects', data.site.headers.projects);
         setLink('header-contact', data.site.headers.contact);
 
+        // Section eyebrow labels
+        setLink('label-about', data.site.labels?.about || 'Background');
+        setLink('label-skills', data.site.labels?.skills || 'Expertise');
+        setLink('label-experience', data.site.labels?.experience || 'Career');
+        setLink('label-projects', data.site.labels?.projects || 'Work');
+        setLink('label-contact', data.site.labels?.contact || 'Contact');
+
         // UI Text Elements
-        setLink('hero-greeting', data.site.uiText.heroGreeting);
+        // hero-greeting is now the eyebrow pill — set emoji + role
+        const greetingEl = document.getElementById('hero-greeting');
+        if (greetingEl) greetingEl.innerHTML = `<span>👋</span> ${data.site.uiText.heroGreeting} — ${data.hero.role}`;
         setLink('btn-view-projects', data.site.uiText.heroButtons.viewProjects);
         setLink('btn-contact-me', data.site.uiText.heroButtons.contactMe);
         setLink('contact-tagline', data.site.uiText.contactTagline);
         setLink('resume-btn-text', data.site.uiText.resumeButtonText);
 
         // --- Personal Content ---
-        // Hero Section
-        setLink('hero-name', data.hero.name);
-        document.getElementById('hero-name').textContent = data.hero.name;
+        // Hero Section — name gets gradient span, role is hidden via CSS
+        document.getElementById('hero-name').innerHTML = `<span class="gradient-text">${data.hero.name}</span>`;
         document.getElementById('hero-role').textContent = data.hero.role;
         document.getElementById('hero-tagline').textContent = data.hero.tagline;
 
