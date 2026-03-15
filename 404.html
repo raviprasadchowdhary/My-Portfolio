@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | Raviprasad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #0a0a0f;
+            color: #e2e2f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .code {
+            font-size: clamp(5rem, 20vw, 9rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #a855f7, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #7878a0;
+            max-width: 380px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #0e7490);
+            color: #fff;
+            box-shadow: 0 4px 24px rgba(168, 85, 247, 0.25);
+        }
+
+        .btn-ghost {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            color: #e2e2f0;
+        }
+
+        .btn-ghost:hover {
+            border-color: #a855f7;
+            color: #a855f7;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #7878a0;
+        }
+
+        footer a {
+            padding: 0;
+            color: #a855f7;
+            font-size: inherit;
+            font-weight: 500;
+            background: none;
+            box-shadow: none;
+            display: inline;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            transform: none;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="code">404</div>
+    <h1>Page not found</h1>
+    <p>The page you're looking for doesn't exist or may have been moved. Head back to the portfolio.</p>
+
+    <div class="actions">
+        <a href="/" class="btn-primary">← Back to Portfolio</a>
+        <a href="/#contact" class="btn-ghost">Contact Me</a>
+    </div>
+
+    <footer>
+        <a href="/">raviprasadchowdhary.com</a>
+    </footer>
+
+</body>
+</html>
