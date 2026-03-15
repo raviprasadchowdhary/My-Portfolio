@@ -8,6 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const data = portfolioData;
 
+        // --- Date helpers: auto-computed durations ---
+        function calcDuration(startStr, endStr) {
+            const [sy, sm] = startStr.split('-').map(Number);
+            const start = new Date(sy, sm - 1);
+            const end = endStr
+                ? (() => { const [ey, em] = endStr.split('-').map(Number); return new Date(ey, em - 1); })()
+                : new Date();
+            let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+            if (months < 1) months = 1;
+            const years = Math.floor(months / 12);
+            const mos = months % 12;
+            const parts = [];
+            if (years > 0) parts.push(`${years} yr${years !== 1 ? 's' : ''}`);
+            if (mos > 0) parts.push(`${mos} mo${mos !== 1 ? 's' : ''}`);
+            return parts.join(' ');
+        }
+        function fmtDate(dateStr) {
+            if (!dateStr) return 'Present';
+            const [yr, mo] = dateStr.split('-');
+            return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(mo,10)-1] + ' ' + yr;
+        }
+        // Total experience years — auto-updates every page load
+        const earliestStart = data.experience.reduce(
+            (min, co) => co.companyStartDate < min ? co.companyStartDate : min,
+            data.experience[0].companyStartDate
+        );
+        const yearsExp = Math.floor(
+            (new Date() - new Date(earliestStart.split('-')[0], earliestStart.split('-')[1] - 1))
+            / (1000 * 60 * 60 * 24 * 365.25)
+        );
+
         // --- Site Config ---
         // Page Title
         document.title = data.site.pageTitle || 'Portfolio';
@@ -67,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hero Section — name gets gradient span, role is hidden via CSS
         document.getElementById('hero-name').innerHTML = `<span class="gradient-text">${data.hero.name}</span>`;
         document.getElementById('hero-role').textContent = data.hero.role;
-        document.getElementById('hero-tagline').textContent = data.hero.tagline;
+        document.getElementById('hero-tagline').textContent = data.hero.tagline.replace('{{yearsExp}}', yearsExp);
 
         // Hero Socials
         const heroSocial = document.getElementById('hero-social');
@@ -82,12 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutText.innerHTML = data.about.text.map(para => `<p>${para}</p>`).join('');
 
         const aboutStats = document.getElementById('about-stats');
-        aboutStats.innerHTML = data.about.stats.map(stat => `
+        aboutStats.innerHTML = data.about.stats.map(stat => {
+            const value = stat.auto === 'yearsExp' ? `${yearsExp}+` : stat.value;
+            return `
             <div class="stat-item">
-                <span class="stat-number">${stat.value}</span>
+                <span class="stat-number">${value}</span>
                 <span class="stat-label">${stat.label}</span>
-            </div>
-        `).join('');
+            </div>`;
+        }).join('');
 
         // Skills Section
         const skillsGrid = document.getElementById('skills-grid');
@@ -102,20 +135,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Experience Section
         const expTimeline = document.getElementById('experience-timeline');
-        expTimeline.innerHTML = data.experience.map(exp => `
+        expTimeline.innerHTML = data.experience.map(company => {
+            const companyDuration = calcDuration(company.companyStartDate, company.companyEndDate);
+            const rolesHtml = company.roles.map(role => {
+                const roleStart = fmtDate(role.startDate);
+                const roleEnd = fmtDate(role.endDate);
+                const roleDuration = calcDuration(role.startDate, role.endDate);
+                return `
+                <div class="timeline-role">
+                    <div class="timeline-role-header">
+                        <h4 class="timeline-role-title">${role.title}</h4>
+                        <span class="timeline-role-meta">${roleStart} – ${roleEnd} &middot; ${roleDuration}</span>
+                        <span class="timeline-role-location"><i class="fas fa-location-dot"></i> ${role.location} &middot; ${role.workType}</span>
+                    </div>
+                    <ul>
+                        ${role.points.map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                </div>`;
+            }).join('');
+            return `
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                <div class="timeline-date">${exp.date}</div>
                 <div class="timeline-content">
-                    <h3>${exp.role}</h3>
-                    <h4>${exp.company}</h4>
-                    <p>${exp.description}</p>
-                    <ul>
-                        ${exp.points.map(point => `<li>${point}</li>`).join('')}
-                    </ul>
+                    <div class="timeline-company-header">
+                        <h3>${company.company}</h3>
+                        <span class="timeline-company-meta">${company.companyType} &middot; ${companyDuration}</span>
+                    </div>
+                    <div class="timeline-roles">${rolesHtml}</div>
                 </div>
-            </div>
-        `).join('');
+            </div>`;
+        }).join('');
 
         // Projects Section
         const projectsGrid = document.getElementById('projects-grid');
